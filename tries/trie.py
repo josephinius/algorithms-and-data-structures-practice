@@ -113,7 +113,7 @@ class Trie(object):
             word: The stem corresponding to the node we want to find.
         
         Returns:
-            The node of stem corresponding to word or None is the trie is empty.
+            The node of stem corresponding to word or None if the trie is empty.
         """
         return self.root and self.root.find(word, True)
     
