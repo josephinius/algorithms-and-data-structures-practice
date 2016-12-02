@@ -7,7 +7,7 @@ class TrieNode(object):
         
         Args:
             parent: The node's parent.
-            is_word: Is is a complete word or not. 
+            is_word: True if it is a complete word, False otherwise. 
             children: Pointers to children nodes. 
         """
         self.parent = parent
@@ -79,7 +79,7 @@ class TrieNode(object):
             for u in frontier: 
                 for c in u.children:
                     v = u.children[c]
-                    #if v not in level: # this is always TRUE
+                    #if v not in level: # this is always True
                     #level[v] = i
                     if v.is_word:
                         level_order.append(v.text)
