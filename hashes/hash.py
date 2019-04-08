@@ -18,7 +18,7 @@ class HashTable(object):
         self.number_of_items = 0 
         self.number_of_deleted = 0 
         self.data = [None] * self.size
-                
+            
     def insert(self, key, value):
         """Adds a key-value pair into the table (overwrites any existing key).
         
@@ -29,13 +29,16 @@ class HashTable(object):
         deleted_index = None 
         for i in range(self.size):
             idx = self._linear_probing(key, i)
-            if self.data[idx] is None: 
+            if self.data[idx] is None:  # End of probing sequence 
+                if deleted_index is not None:  # Deleted item has been encountered somewhere in probing sequence 
+                    break
                 self.data[idx] = (key, value)
                 self.number_of_items += 1
                 return
-            elif deleted_index is None and self.data[idx] is Deleted:
-                deleted_index = idx 
-            elif self.data[idx][0] == key: 
+            elif self.data[idx] is Deleted:
+                if deleted_index is None: 
+                    deleted_index = idx
+            elif self.data[idx][0] == key:  # Overwriting existing key 
                 self.data[idx] = (key, value)
                 return 
         if deleted_index is not None: 
@@ -44,8 +47,8 @@ class HashTable(object):
             return
         #raise TableFullError # table resizing instead
         self._table_enlarging()
-        self.insert(key, value)
-    
+        self.insert(key, value)            
+            
     def search(self, key):
         """Returns item with key if it exists. 
         
