@@ -39,6 +39,7 @@ def fibonacci(n):
 
 
 # @memo
+# @lru(10)
 def factorial(n):
     """Returns n factorial"""
     if n < 2:
