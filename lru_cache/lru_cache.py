@@ -2,11 +2,11 @@
 
 Least Recently Used (LRU) cache
 
-- LRUCacheDict: implementation based on dictionary with O(n) time-complexity
+- LRUCacheDict: implementation based on dictionary; O(n) time-complexity
 
-- LRUCacheHeap: implementation based on dictionary and min-heap with O(log(n)) time-complexity
+- LRUCacheHeap: implementation based on dictionary and min-heap; O(log(n)) time-complexity
 
-- LRUCacheQueue: implementation based on dictionary and queue with O(1) time-complexity
+- LRUCacheQueue: implementation based on dictionary and queue; O(1) time-complexity
 
 """
 
